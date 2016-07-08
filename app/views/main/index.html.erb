@@ -1,0 +1,20 @@
+<h1>Music Search</h1>
+<p>Find me in app/views/main/index.html.erb</p>
+
+<%= form_tag(root_path, method: :GET) do %>
+  <%= label_tag(:term, 'Search') %>
+  <%= text_field_tag(:term) %>
+
+  <%= submit_tag('Search') %>
+<% end %>
+
+
+<% @data.each do |music| %>
+  <div>
+  <%= image_tag(music['artworkUrl100']) %>
+    <h2><%= music['trackName'] %>
+      <small><%= music['artistName'] %></small>
+    </h2>
+    <audio href="<%= music['previewUrl'] %>" controls></audio>
+  </div>
+<% end %>
